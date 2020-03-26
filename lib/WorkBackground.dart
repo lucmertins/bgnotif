@@ -22,9 +22,9 @@ void initializeWorkBackground() {
 }
 
 void callbackDispatcher() {
-  WidgetsFlutterBinding.ensureInitialized();
   Workmanager.executeTask((task, inputData) async {
-    print("************* background task *****  $task");
+    WidgetsFlutterBinding.ensureInitialized();
+    print("************* 1 background task *****  $task");
     try {
     // call notification
       await showNotification();
@@ -32,6 +32,7 @@ void callbackDispatcher() {
       print("notification failed - $e");
       print("Stack: \n$s");
     }
+    print("************* 3 background task  end");
     return Future.value(true);
   });
 }

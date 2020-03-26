@@ -27,8 +27,7 @@ class ReceivedNotification {
       @required this.payload});
 }
 
-void initializeNotification() async {
-  WidgetsFlutterBinding.ensureInitialized();
+Future<void> initializeNotification() async {
   var initializationSettingsAndroid = AndroidInitializationSettings('iconnotif');
 
   var initializationSettingsIOS = IOSInitializationSettings(
@@ -66,7 +65,6 @@ void requestIOSPermissions() {
 }
 
 Future<void> showNotification() async {
-  WidgetsFlutterBinding.ensureInitialized();
   print("showNotification");
 
   var androidPlatformChannelSpecifics = AndroidNotificationDetails(
